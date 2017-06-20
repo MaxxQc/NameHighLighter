@@ -1,0 +1,10 @@
+name: NameHighLighter
+main: qc.maxx.namehighlighter.NameHighLighter
+description: Make it clear when anyone mention your name in the chat!
+author: Maxx_Qc
+version: 1.0
+commands:
+  togglementionsound:
+    description: Desactivate the sound whenever someone mention your name.
+    aliases: [tms, togglems]
+    usage: 'Use: /tms'
