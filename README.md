@@ -1,7 +1,7 @@
 # NameHighLighter
 A Bukkit/Spigot plugin for Minecraft.
 
-Original thread: 
+Original thread: https://www.spigotmc.org/resources/namehighlighter.42604/
 
 The source code is under license, please see: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
