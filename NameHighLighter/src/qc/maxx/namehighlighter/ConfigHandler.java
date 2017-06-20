@@ -279,19 +279,19 @@ public class ConfigHandler {
 			configFile.createNewFile();
 			BufferedWriter out = new BufferedWriter(new FileWriter(configFile));
 			
-			out.write("####  #  #####  ###    ###  #####  #####  #   #  #####  #         #  #####  #######");
+			out.write("####  #  #####  ###    ###  #####  #   #  #  #####  #   #  #      #  #####    #   #  #####  #####  #####");
 			out.newLine();
-			out.write("#  #  #  #   #  # #   #  #  #      #      #   #  #   #  #         #  #      #     #");
+			out.write("#  #  #  #   #  # #   #  #  #      #   #  #  #      #   #  #      #  #        #   #    #    #      #   #");
 			out.newLine();
-			out.write("#  #  #  #   #  #  # #   #  #      #      #   #  #   #  #         #  #      #     #");
+			out.write("#  #  #  #   #  #  # #   #  #      #   #  #  #      #   #  #      #  #        #   #    #    #      #   #");
 			out.newLine();
-			out.write("#  #  #  #####  #   #    #  #####  #####  #####  #   #  #    #    #  #####  #######");
+			out.write("#  #  #  #####  #   #    #  #####  #####  #  #  ##  #####  #      #  #  ##    #####    #    #####  #####");
 			out.newLine();
-			out.write("#  #  #  #   #  #        #  #          #  #   #  #   #  #   # #   #  #      #  #");
+			out.write("#  #  #  #   #  #        #  #      #   #  #  #   #  #   #  #      #  #   #    #   #    #    #      # #");
 			out.newLine();
-			out.write("#  #  #  #   #  #        #  #          #  #   #  #   #  #  #   #  #  #      #   #");
+			out.write("#  #  #  #   #  #        #  #      #   #  #  #   #  #   #  #      #  #   #    #   #    #    #      #  #");
 			out.newLine();
-			out.write("#  ####  #   #  #        #  #####  #####  #   #  #####  ###     ###  #####  #    #");
+			out.write("#  ####  #   #  #        #  #####  #   #  #  #####  #   #  #####  #  #####    #   #    #    #####  #   #");
 			out.newLine();
 			out.newLine();
 
