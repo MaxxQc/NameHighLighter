@@ -48,6 +48,7 @@ public class NameHighLighter extends JavaPlugin implements Listener {
 		
 		if (ConfigHandler.getMentionSound())
 			this.getCommand("togglementionsound").setExecutor(new ToggleMentionSoundCommand(this));
+		this.getCommand("nhreload").setExecutor(new ReloadCommand(this));
 		
 		this.logger.info("Langue / Langage : " + ConfigHandler.getLangage());
 		
@@ -121,7 +122,7 @@ public class NameHighLighter extends JavaPlugin implements Listener {
         return true;
 	}
 	
-	public static String colorize(String string) {
+	public String colorize(String string) {
 		if (string == null)
 			return null;
 

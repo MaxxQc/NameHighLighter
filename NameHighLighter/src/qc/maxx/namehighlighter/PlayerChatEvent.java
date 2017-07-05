@@ -29,17 +29,18 @@ public class PlayerChatEvent implements Listener {
 						continue;
 					
 					if (e.getMessage().contains(target.getName())) {
-						String message = e.getMessage().replace(target.getName(), NameHighLighter.colorize(ConfigHandler.getReplaceString().replace("%PLAYERNAME%", target.getName())));
+						String message = e.getMessage().replace(target.getName(), plugin.colorize(ConfigHandler.getReplaceString().replace("%PLAYERNAME%", target.getName())));
 						
 						e.getRecipients().remove(target);
 						e.getRecipients().remove(sender);
 						
 						target.sendMessage(String.format(e.getFormat(), sender.getCustomName() == null ? sender.getName() : sender.getCustomName(), message));
-						if (target != sender)
+						
+						if (sender != target)
 							sender.sendMessage(String.format(e.getFormat(), sender.getCustomName() == null ? sender.getName() : sender.getCustomName(), message));
 						
 						if (ConfigHandler.getMentionSound())
-							if (!plugin.getDesactivedSoundPlayers().contains(target.getName()))
+							if (!plugin.getDesactivedSoundPlayers().contains(target.getUniqueId().toString()))
 								target.playSound(target.getLocation(), Sound.valueOf(ConfigHandler.getSound()), ConfigHandler.getSoundVolume(), ConfigHandler.getSoundPitch());
 					}
 				}
@@ -50,17 +51,18 @@ public class PlayerChatEvent implements Listener {
 					continue;
 				
 				if (e.getMessage().contains(target.getName())) {
-					String message = e.getMessage().replace(target.getName(), NameHighLighter.colorize(ConfigHandler.getReplaceString().replace("%PLAYERNAME%", target.getName())));
+					String message = e.getMessage().replace(target.getName(), plugin.colorize(ConfigHandler.getReplaceString().replace("%PLAYERNAME%", target.getName())));
 					
 					e.getRecipients().remove(target);
 					e.getRecipients().remove(sender);
 					
 					target.sendMessage(String.format(e.getFormat(), sender.getCustomName() == null ? sender.getName() : sender.getCustomName(), message));
-					if (target != sender)
+					
+					if (sender != target)
 						sender.sendMessage(String.format(e.getFormat(), sender.getCustomName() == null ? sender.getName() : sender.getCustomName(), message));
 					
 					if (ConfigHandler.getMentionSound())
-						if (!plugin.getDesactivedSoundPlayers().contains(target.getName()))
+						if (!plugin.getDesactivedSoundPlayers().contains(target.getUniqueId().toString()))
 							target.playSound(target.getLocation(), Sound.valueOf(ConfigHandler.getSound()), ConfigHandler.getSoundVolume(), ConfigHandler.getSoundPitch());
 				}
 			}

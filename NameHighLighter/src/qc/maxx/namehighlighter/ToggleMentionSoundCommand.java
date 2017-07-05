@@ -3,6 +3,7 @@ package qc.maxx.namehighlighter;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class ToggleMentionSoundCommand implements CommandExecutor {
 	private NameHighLighter plugin;
@@ -12,20 +13,24 @@ public class ToggleMentionSoundCommand implements CommandExecutor {
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		if (plugin.getDesactivedSoundPlayers().contains(sender.getName())) {
-			plugin.getDesactivedSoundPlayers().remove(sender.getName());
+		if (sender instanceof Player) {
+			Player p = (Player) sender;
 			
-			if (ConfigHandler.getLangage().equals("fr"))
-				sender.sendMessage(NameHighLighter.colorize("&bLe son de mention est désormais activé!"));
-			else
-				sender.sendMessage(NameHighLighter.colorize("&bThe mention sound is now activated!"));
-		} else {
-			plugin.getDesactivedSoundPlayers().add(sender.getName());
-			
-			if (ConfigHandler.getLangage().equals("fr"))
-				sender.sendMessage(NameHighLighter.colorize("&bLe son de mention est désormais désactivé!"));
-			else
-				sender.sendMessage(NameHighLighter.colorize("&bThe mention sound is now desactivated!"));
+			if (plugin.getDesactivedSoundPlayers().contains(p.getUniqueId().toString())) {
+				plugin.getDesactivedSoundPlayers().remove(p.getUniqueId().toString());
+				
+				if (ConfigHandler.getLangage().equals("fr"))
+					p.sendMessage(plugin.colorize("&bLe son de mention est désormais activé!"));
+				else
+					p.sendMessage(plugin.colorize("&bThe mention sound is now activated!"));
+			} else {
+				plugin.getDesactivedSoundPlayers().add(p.getUniqueId().toString());
+				
+				if (ConfigHandler.getLangage().equals("fr"))
+					p.sendMessage(plugin.colorize("&bLe son de mention est désormais désactivé!"));
+				else
+					p.sendMessage(plugin.colorize("&bThe mention sound is now desactivated!"));
+			}
 		}
 		
 		return true;
